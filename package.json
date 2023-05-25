@@ -1,0 +1,27 @@
+{
+	"name": "stock-prediction-package",
+	"description": "A package for stock machine learning prediction",
+	"version": "0.1.3",
+	"author": "devops",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/some-project-here"
+	},
+	"dependencies": {
+		"react": "16.8.6",
+		"pandas": "2.4.5",
+		"numpy": "0.5.7",
+		"statsmodels": "6.5.4",
+		"langchain": "0.3.2"
+	},
+	"devDependencies": {
+		"prettier": "^1.18.2"
+	},
+	"keywords": ["ai", "ml", "llm"],
+	"license": "Apache",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"bin": "./bin/executable.js"
+}
