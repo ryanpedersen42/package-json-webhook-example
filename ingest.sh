@@ -28,6 +28,7 @@ $(echo "$dependencies" | jq -r 'to_entries[] | .key + "=" + .value')
 EOF
 
     local entity_object="{\"service\":\"$SERVICE_ID\",\"dependencies\":[${converted_dependencies%,}]}"
+    echo "$entity_object"
     local webhook_response=$(add_entity_to_port "$entity_object")
     echo "$webhook_response"
 }
