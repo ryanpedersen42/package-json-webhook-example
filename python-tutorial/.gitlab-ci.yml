@@ -16,7 +16,7 @@ ingest_packages_to_port_job:
     - pip install --no-cache-dir -r requirements.txt
   script:
     - echo "Uploading Packages to Port"
-    - python app.py
+    - python ingest.py
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: always

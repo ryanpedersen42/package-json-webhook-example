@@ -12,6 +12,8 @@ add_entity_to_port() {
     echo "$response"
 }
 
+# This function takes a package.json file path, converts the "dependencies" property into a 
+# JSON array using three keys (name, version, and id). It then sends this data to Port
 convert_package_json() {
     local package_json_path="$1"
     local data=$(cat "$package_json_path")

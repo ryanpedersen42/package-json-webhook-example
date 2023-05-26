@@ -33,5 +33,8 @@ The list of the required variables to run this pipeline are:
 3. Enter the necessary information into the form: the Description, Interval Pattern, Timezone, Target branch and other variables specifically for the schedule.
 4. Click on **Save pipeline schedule** 
 
-#### Screenshot - Package Entity Created
+### Package Entity Created
 ![Package Entity Created](./assets/packages.PNG "Package Entity Created")
+
+### Python Resources
+This project contains [example python resources](./python-tutorial/) that can be replaced with the shell script if you're using Python programming.
