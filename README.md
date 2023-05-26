@@ -3,7 +3,7 @@
 
 ## Getting started
 
-In this example you will create a blueprint for `package` entity that ingests all third party dependencies in your package.json file using a combination of REST API and Webhook. You will then relate this `package` blueprint to a `service` blueprint, allowing you to display all the packages used by a service. Also, you will add some python script to transform your package file into a format required by the webhook (which is mostly JSON Array for the `dependencies` property). Finally, you will configure your Gitlab to create/update your entities in Port every time a GitLab CI is triggered by a schedule.
+In this example you will create a blueprint for `package` entity that ingests all third party dependencies in your package.json file using a combination of REST API and Webhook. You will then relate this `package` blueprint to a `service` blueprint, allowing you to display all the packages used by a service. Also, you will add some script to transform your package file into a format required by the webhook (which is mostly JSON Array for the `dependencies` property). Finally, you will configure your Gitlab to create/update your entities in Port every time a deployment or commit is made to a specified branch such as main/dev.
 
 ## Service Blueprint
 Create the service blueprint in Port [using this json file](./resources/service.md)
