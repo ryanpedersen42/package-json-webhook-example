@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: python:3.8
 
 variables:
   WEBHOOK_URL: $WEBHOOK_URL
@@ -11,11 +11,12 @@ stages:
 ingest_packages_to_port_job:
   stage: build
   before_script:
-    - apt-get update
-    - apt-get install -y curl jq
+    - python -m pip install --upgrade pip
+    - pip install --upgrade setuptools
+    - pip install --no-cache-dir -r requirements.txt
   script:
     - echo "Uploading Packages to Port"
-    - sh ingest.sh
+    - python app.py
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: always
