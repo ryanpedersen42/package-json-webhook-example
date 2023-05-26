@@ -27,12 +27,6 @@ The list of the required variables to run this pipeline are:
 - `WEBHOOK_URL`
 - `PATH_TO_PACKAGE_JSON_FILE`
 
-### Schedule the script
-1. Go to your Gitlab project and select CI/CD
-2. Click on **Schedules** and create new schedule
-3. Enter the necessary information into the form: the Description, Interval Pattern, Timezone, Target branch and other variables specifically for the schedule.
-4. Click on **Save pipeline schedule** 
-
 ### Package Entity Created
 ![Package Entity Created](./assets/packages.PNG "Package Entity Created")
 
