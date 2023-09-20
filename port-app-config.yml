@@ -1,0 +1,78 @@
+resources:
+  - kind: repository
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .name
+          title: .name
+          blueprint: '"repository"'
+          properties:
+            url: .html_url
+            readme: file://README.md
+            description: .description
+            language: .language
+  - kind: pull-request
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .head.repo.name + (.id|tostring)
+          title: .title
+          blueprint: '"pullRequest"'
+          properties:
+            creator: .user.login
+            assignees: '[.assignees[].login]'
+            reviewers: '[.requested_reviewers[].login]'
+            status: .status
+            closedAt: .closed_at
+            updatedAt: .updated_at
+            mergedAt: .merged_at
+            createdAt: .created_at
+            description: .body
+            prNumber: .id
+            link: .html_url
+          relations:
+            repository: .head.repo.name
+  - kind: workflow
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .repo + (.id|tostring)
+          title: .name
+          blueprint: '"workflow"'
+          properties:
+            path: .path
+            status: .state
+            createdAt: .created_at
+            updatedAt: .updated_at
+            link: .html_url
+          relations:
+            repository: .repo
+  - kind: workflow-run
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .repository.name + (.id|tostring)
+          title: .display_title
+          blueprint: '"workflowRun"'
+          properties:
+            name: .name
+            triggeringActor: .triggering_actor.login
+            status: .status
+            conclusion: .conclusion
+            createdAt: .created_at
+            runStartedAt: .run_started_at
+            updatedAt: .updated_at
+            deletedAt: .deleted_at
+            runNumber: .run_number
+            runAttempt: .run_attempt
+            link: .html_url
+          relations:
+            workflow: .repository.name + (.workflow_id|tostring)
